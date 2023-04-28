@@ -2,39 +2,36 @@
 jQuery loader.
 */
 (function() {
+	const jquerySelector = document.querySelector(".jquery");
+	if (!jquerySelector) return;
 
-	if (document.querySelector(".jquery") !== null) {
-		const script = document.createElement("script");
-
-		script.src  = 'assets/js/jquery.min.js';
-		script.type = 'text/javascript';
-
-		script.addEventListener('load', () => {
-			console.log(`jQuery ${$.fn.jquery} has been loaded successfully!`);
-			jQueryScripts();
-		});
-
-		document.head.appendChild(script);
-	}
-
+	const script = document.createElement("script");
+	script.src = 'assets/js/jquery.min.js';
+	script.type = 'text/javascript';
+	script.addEventListener('load', () => {
+		console.log(`jQuery ${$.fn.jquery} has been loaded successfully!`);
+		jQueryScripts();
+	});
+	document.head.appendChild(script);
 })();
 
 /*
 Vanilla JS scripts.
 */
 (function() {
-
 	// Date and Time
-	if (document.getElementById("Date") !== null) {
-		loadJS("assets/js/datetime.js", true);
-	}
+	const dateSelector = document.getElementById("Date");
+	if (dateSelector) loadJS("assets/js/datetime.js", true);
 	// Search
-	if (document.querySelector(".textarea") !== null) {
-		loadJS("assets/js/search.js", true);
-	}
+	const textareaSelector = document.querySelector(".textarea");
+	if (textareaSelector) loadJS("assets/js/search.js", true);
 	// Stars
-	if (document.querySelector(".stars") !== null) {
+	const starsSelector = document.querySelector(".stars");
+	if (starsSelector) {
+		loadJS("assets/js/slick.min.js", false);
 		loadJS("assets/js/stars.js", true);
+		loadCSS("assets/css/slick.css");
+		loadCSS("assets/css/slick-theme.css");
 	}
 })();
 
@@ -42,16 +39,17 @@ Vanilla JS scripts.
 jQuery dependent scripts.
 */
 function jQueryScripts() {
-
 	// slick carousel
-	if (document.querySelector(".slick-start") !== null) {
+	const slickSelector = document.querySelector(".slick-start");
+	if (slickSelector) {
 		loadJS("assets/js/slick.min.js", false);
 		loadJS("assets/js/slick-config.js", true);
 		loadCSS("assets/css/slick.css");
 		loadCSS("assets/css/slick-theme.css");
 	}
 	// jQuery Ripples plugin
-	if (document.querySelector(".ripples") !== null) {
+	const ripplesSelector = document.querySelector(".ripples");
+	if (ripplesSelector) {
 		loadJS("assets/js/jquery.ripples.min.js", false);
 		loadJS("assets/js/jquery.ripples-config.js", true);
 	}
@@ -61,32 +59,18 @@ function jQueryScripts() {
 JS async loader.
 */
 function loadJS(FILE_URL, async = true, footer = true, defer) {
+	const scriptEle = document.createElement("script");
+	scriptEle.src = FILE_URL;
+	scriptEle.type = "text/javascript";
 
-	let scriptEle = document.createElement("script"),
-		FILE_NAME = FILE_URL.substr(FILE_URL.lastIndexOf('/') + 1);
-	
-	scriptEle.setAttribute("src", FILE_URL);
-	scriptEle.setAttribute("type", "text/javascript");
+	if (defer) scriptEle.defer = true;
+	if (async) scriptEle.async = true;
 
-	if ( defer == true ) {
-		defer = "";
-		scriptEle.setAttribute("defer", defer);
-	}
+	footer ? document.body.appendChild(scriptEle) : document.head.appendChild(scriptEle);
 
-	if ( async == true ) {
-		async = "";
-		scriptEle.setAttribute("async", async);
-	}
-
-	if (footer == true) {
-		document.body.appendChild(scriptEle);
-	} else {
-		document.head.appendChild(scriptEle);
-	}
-
-	// Success event 
+	// Success event
 	scriptEle.addEventListener("load", () => {
-		console.log("JS file loaded", FILE_NAME)
+		console.log("JS file loaded", FILE_URL);
 	});
 	// Error event
 	scriptEle.addEventListener("error", (ev) => {
@@ -98,24 +82,18 @@ function loadJS(FILE_URL, async = true, footer = true, defer) {
 CSS loader.
 */
 function loadCSS(FILE_URL, crossorigin = false) {
+	const styleEle = document.createElement("link");
+	styleEle.rel = "stylesheet";
+	styleEle.type = "text/css";
+	styleEle.href = FILE_URL;
 
-	let styleEle = document.createElement("link"),
-		FILE_NAME = FILE_URL.substr(FILE_URL.lastIndexOf('/') + 1);
-
-	styleEle.setAttribute("rel", "stylesheet");
-	styleEle.setAttribute("type", "text/css");
-	styleEle.setAttribute("href", FILE_URL);
-
-	if ( crossorigin == true ) {
-		crossorigin = "anonymous";
-		styleEle.setAttribute("crossorigin", crossorigin);
-	}
+	if (crossorigin) styleEle.crossOrigin = "anonymous";
 
 	document.head.appendChild(styleEle);
 
-	// Success event 
+	// Success event
 	styleEle.addEventListener("load", () => {
-		console.log("CSS file loaded", FILE_NAME)
+		console.log("CSS file loaded", FILE_URL);
 	});
 	// Error event
 	styleEle.addEventListener("error", (ev) => {
