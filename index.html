@@ -15,7 +15,7 @@
 	<div id="startpage" class="container">
 		<canvas id="canvas"></canvas>
 		<div class="container-inner">
-			<div class="left-container">
+			<div class="left-container" role="banner">
 				<h1 id="Date">&nbsp;</h1>
 
 				<div class="image border">
@@ -23,7 +23,7 @@
 				</div>
 			</div>
 
-			<div class="right-container">
+			<div class="right-container" role="main">
 				
 				<div class="head">
 					<p>&gt; cd ~/<span class="blinking">_</span></p>
@@ -34,12 +34,12 @@
 						https://duckduckgo.org/
 						https://www.google.com/search
 					-->
-					<form method="get" action="https://www.google.com/search" autocomplete="off" id="search">
+					<form method="get" action="https://www.google.com/search" autocomplete="off" id="search" role="search">
 						<p>
-							<span class="prefix">&gt; search ~/</span>
-							<input class="search-field" id="search-input" type="text"  type="text" name="q" maxlength="100" />
+							<span id="searchLabel" class="prefix">&gt; search ~/</span>
+							<input class="search-field" id="search-input" type="text"  type="text" name="q" maxlength="100" aria-labelledby="searchLabel" />
 							<!--
-							<textarea class="search-field" id="search-textarea" wrap="soft" type="text" name="q" maxlength="100"></textarea>
+							<textarea class="search-field" id="search-textarea" wrap="soft" type="text" name="q" maxlength="100" aria-labelledby="searchLabel"></textarea>
 							-->
 							<span class="blinking">_</span>
 						</p>
@@ -50,7 +50,7 @@
 					<div class="category">
 						<div class="links">
 							<ul>
-								<li class="title">daily</li>
+								<li class="title" role="heading" aria-label="Daily websites" aria-level="2">daily</li>
 								<li><a href="https://gmail.com">gmail</a></li>
 								<li><a href="https://facebook.com">facebook</a></li>
 								<li><a href="https://youtube.com">youtube</a></li>
@@ -62,7 +62,7 @@
 					<div class="category">
 						<div class="links">
 							<ul>
-								<li class="title">gaming</li>
+								<li class="title" role="heading" aria-label="Gaming websites" aria-level="2">gaming</li>
 								<li><a href="https://todayin.games/">today in games</a></li>
 								<li><a href="https://ggmania.com/">gameguru mania</a></li>
 								<li><a href="https://www.nexusmods.com/eldenring?tab=popular+%2830+days%29">nexus mods</a></li>
@@ -74,7 +74,7 @@
 					<div class="category">
 						<div class="links">
 							<ul>
-								<li class="title">elden ring</li>
+								<li class="title" role="heading" aria-label="Elden Ring websites" aria-level="2">elden ring</li>
 								<li><a href="https://jerp.tv/eldenring/spelltools/">spell tools</a></li>
 								<li><a href="https://gobluebro.github.io/Elden-Ring-Checklist/">checklist</a></li>
 								<li><a href="https://eldenring.wiki.fextralife.com/Interactive+Map">interactive map</a></li>
@@ -86,14 +86,14 @@
 					<div class="category">
 						<div class="links slick-start slick-single-arrow">
 							<ul>
-								<li class="title"><a href="https://reddit.com">reddit</a></li>
+								<li class="title" role="heading" aria-label="Reddit subreddit pages" aria-level="2"><a href="https://reddit.com">reddit</a></li>
 								<li><a href="https://reddit.com/r/programming/">r/programming</a></li>
 								<li><a href="https://reddit.com/r/explainlikeimfive/">r/explainlikeimfive</a></li>
 								<li><a href="https://reddit.com/r/gaming/">r/gaming</a></li>
 								<li><a href="https://reddit.com/r/mademesmile/">r/mademesmile</a></li>
 							</ul>
 							<ul>
-								<li class="title">computers</li>
+								<li class="title" role="heading" aria-label="Computer component websites" aria-level="2">computers</li>
 								<li><a href="https://www.microcenter.com/search/search_results.aspx?N=4294966937&Ntk=all&sortby=match&myStore=true">microcenter</a></li>
 								<li><a href="https://www.evga.com/products/productlist.aspx?type=0&family=GeForce+30+Series+Family">evga rtx 30 series</a></li>
 								<li><a href="https://reddit.com/r/buildapcsales">r/buildapcsales</a></li>
@@ -107,7 +107,7 @@
 					<div class="category">
 						<div class="links">
 							<ul>
-								<li class="title">shopping</li>
+								<li class="title" role="heading" aria-label="General shopping websites" aria-level="2">shopping</li>
 								<li><a href="https://amazon.com">amazon</a></li>
 								<li><a href="https://ebay.com">ebay</a></li>
 								<li><a href="https://bestbuy.com">bestbuy</a></li>
@@ -119,7 +119,7 @@
 					<div class="category">
 						<div class="links">
 							<ul>
-								<li class="title">music</li>
+								<li class="title" role="heading" aria-label="Music websites" aria-level="2">music</li>
 								<li><a href="https://www.radiohead.com">radiohead</a></li>
 								<li><a href="https://www.filiposcar.com">filip oscar</a></li>
 								<li><a href="https://filiposcar.bandcamp.com/">bandcamp</a></li>
@@ -131,7 +131,7 @@
 					<div class="category">
 						<div class="links">
 							<ul>
-								<li class="title">dev</li>
+								<li class="title" role="heading" aria-label="Software development websites" aria-level="2">dev</li>
 								<li><a href="https://github.com/">github</a></li>
 								<li><a href="https://stackoverflow.com/">stackoverflow</a></li>
 								<li><a href="https://distrowatch.com/">distrowatch</a></li>
@@ -143,7 +143,7 @@
 					<div class="category">
 						<div class="links">
 							<ul>
-								<li class="title">fun</li>
+								<li class="title" role="heading" aria-label="Fun websites" aria-level="2">fun</li>
 								<li><a href="https://monkeytype.com/">monkeytype</a></li>
 								<li><a href="https://twitter.com/">twitter</a></li>
 								<li><a href="https://twitch.tv/">twitch</a></li>
