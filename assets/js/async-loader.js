@@ -27,12 +27,7 @@ Vanilla JS scripts.
 	if (textareaSelector) loadJS("assets/js/search.js", true);
 	// Stars
 	const starsSelector = document.querySelector(".stars");
-	if (starsSelector) {
-		loadJS("assets/js/slick.min.js", false);
-		loadJS("assets/js/stars.js", true);
-		loadCSS("assets/css/slick.css");
-		loadCSS("assets/css/slick-theme.css");
-	}
+	if (starsSelector) loadJS("assets/js/stars.js", true);
 })();
 
 /*
