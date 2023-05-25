@@ -8,6 +8,7 @@ Please feel free to fork and make your own changes!
 
 - Converted to CSS Flex
 - Fully responsive layout
+- WCAG accessibility
 - Support for multiple `bookmarks` containers
 - Added search functionality
 - Tabbed navigation for `links` containers using slick carousel

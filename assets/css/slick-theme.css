@@ -199,3 +199,8 @@
 	opacity: .75;
 	color: var(--color-link-hover);
 }
+/** Improved .sr-only class by ffoodd: https://gist.github.com/ffoodd/000b59f431e3e64e4ce1a24d5bb36034 */
+ .slick-sr-only {
+	 -webkit-clip-path: inset(50%) !important;
+	 clip-path: inset(50%) !important;
+}

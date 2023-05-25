@@ -546,7 +546,7 @@ body.search.textarea #search #search-input {
 	text-indent: 198px;
 }
 
-#search p > span.prefix {
+#search p > label.prefix {
 	flex: 0 0 auto;
 }
 
@@ -571,6 +571,15 @@ textarea:focus ~ span.blinking {
 	left: 50%;
 	transform: translateX(-50%);
 	top: unset;
+}
+
+.sr-only {
+	position: absolute;
+	left: -9999px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
 }
 
 /* Custom Scrollbar */
